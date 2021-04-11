@@ -3,7 +3,8 @@
 
 ## ■プロジェクト概要
 ECサイト開発用の、カスタム可能テンプレートサイト開発
-
+#### マスタ管理
+https://docs.google.com/spreadsheets/d/12S9ADpyVIUlXjXIYzQ0he9vYCn8XqQZvturFyerhGU0/edit#gid=151679123
 ## ■タスク管理
 Jira
 
