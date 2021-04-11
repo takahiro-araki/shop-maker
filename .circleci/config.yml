@@ -1,0 +1,37 @@
+version: 2.1
+description: "shop-maker CI/CD"
+
+executors:
+    shop-maker:
+        working_directory: ~/shop-maker
+        docker:
+            - image: circleci/openjdk:16-jdk-buster
+
+commands:
+    deploy:
+        description: "deploy on prod"
+        steps: 
+            - run:
+                name: deploy
+                command: |
+                    ssh -oStrictHostKeyChecking=no ${USER_NAME}@${HOST_NAME} 'cd /usr/src/article && sudo git pull origin master'
+
+jobs:
+    deploy:
+        executor: shop-maker
+        steps:
+            - checkout
+            - add_ssh_keys:
+                fingerprints:
+                    - "fingerprints"
+            - deploy
+
+workflows:
+    version: 2.1
+    deploy:
+        jobs:
+            - deploy:
+                filters:
+                    branches:
+                        only: main
+
