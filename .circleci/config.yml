@@ -30,7 +30,13 @@ workflows:
     version: 2.1
     deploy:
         jobs:
+            - build:
+                filters:
+                    branches:
+                        only: main
             - deploy:
+                requires:
+                    - build
                 filters:
                     branches:
                         only: main
