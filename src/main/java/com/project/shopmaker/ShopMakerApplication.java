@@ -15,7 +15,7 @@ public class ShopMakerApplication {
 	
 	@GetMapping("/hello")
 	public String hello() {
-		return "Hello World";
+		return "Hello World shige";
 	}
 
 }
